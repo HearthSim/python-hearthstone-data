@@ -5,7 +5,7 @@ import sys
 from setuptools import setup
 
 
-BASE_VERSION = "0"
+BASE_VERSION = "1"
 
 
 def get_version():
