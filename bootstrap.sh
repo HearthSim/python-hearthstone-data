@@ -4,6 +4,7 @@ BASEDIR="$(dirname "$0")"
 HSDATA_URL="https://github.com/HearthSim/hsdata.git"
 HSDATA_DIR="$BASEDIR/build/hs-data"
 PACKAGE_DIR="$BASEDIR/hearthstone_data"
+BUILD="$(xmllint --xpath "string(/*/@build)" "$HSDATA_DIR/CardDefs.xml")"
 
 
 command -v git &>/dev/null || {
@@ -25,3 +26,4 @@ cp "$HSDATA_DIR/CardDefs.xml" "$PACKAGE_DIR/CardDefs.xml"
 rm -rf "$BASEDIR/hearthstone_data/Strings"
 cp -rf "$HSDATA_DIR/Strings" -t "$PACKAGE_DIR"
 find "$PACKAGE_DIR/Strings" -type f -not -name "GLOBAL.txt" -exec rm {} \;
+echo "$BUILD" > "$PACKAGE_DIR/BUILD"
