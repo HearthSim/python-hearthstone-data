@@ -19,6 +19,9 @@ def get_version():
 	with open(build_path, "r") as f:
 		hearthstone_build = f.read().strip()
 
+	assert hearthstone_build
+	assert hearthstone_build.isdigit()
+
 	return ".".join([hearthstone_build, BASE_VERSION])
 
 
