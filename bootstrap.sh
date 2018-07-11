@@ -6,6 +6,10 @@ HSDATA_DIR="$BASEDIR/build/hs-data"
 PACKAGE_DIR="$BASEDIR/hearthstone_data"
 BUILD="$(xmllint --xpath "string(/*/@build)" "$HSDATA_DIR/CardDefs.xml")"
 
+command -v xmllint &>/dev/null || {
+	>&2 echo "ERROR: xmllint is required to bootstrap this project."
+	exit 1
+}
 
 command -v git &>/dev/null || {
 	>&2 echo "ERROR: git is required to bootstrap this project."
