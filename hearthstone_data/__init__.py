@@ -5,6 +5,10 @@ import pkg_resources
 __version__ = pkg_resources.require("hearthstone_data")[0].version
 
 
+def get_bountydefs_path():
+	return pkg_resources.resource_filename("hearthstone_data", "BountyDefs.xml")
+
+
 def get_carddefs_path():
 	return pkg_resources.resource_filename("hearthstone_data", "CardDefs.xml")
 
