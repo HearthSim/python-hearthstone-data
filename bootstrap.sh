@@ -26,6 +26,7 @@ else
 	git -C "$HSDATA_DIR" reset --hard origin/master
 fi
 
+cp "$HSDATA_DIR/BountyDefs.xml" "$PACKAGE_DIR/BountyDefs.xml"
 cp "$HSDATA_DIR/CardDefs.xml" "$PACKAGE_DIR/CardDefs.xml"
 rm -rf "$BASEDIR/hearthstone_data/Strings"
 cp -rf "$HSDATA_DIR/Strings" -t "$PACKAGE_DIR"
