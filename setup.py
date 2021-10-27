@@ -27,5 +27,5 @@ def get_version():
 
 setup(
 	version=get_version(),
-	package_data={"": ["BountyDefs.xml", "CardDefs.xml", "Strings/*/*.txt", "BUILD"]},
+	package_data={"": ["BountyDefs.xml", "CardDefs.xml", "MercenaryDefs.xml", "Strings/*/*.txt", "BUILD"]},
 )

@@ -28,6 +28,7 @@ fi
 
 cp "$HSDATA_DIR/BountyDefs.xml" "$PACKAGE_DIR/BountyDefs.xml"
 cp "$HSDATA_DIR/CardDefs.xml" "$PACKAGE_DIR/CardDefs.xml"
+cp "$HSDATA_DIR/MercenaryDefs.xml" "$PACKAGE_DIR/MercenaryDefs.xml"
 rm -rf "$BASEDIR/hearthstone_data/Strings"
 cp -rf "$HSDATA_DIR/Strings" -t "$PACKAGE_DIR"
 rm "$PACKAGE_DIR/Strings"/*/CREDITS_*.txt
