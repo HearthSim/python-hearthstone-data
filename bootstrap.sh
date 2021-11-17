@@ -4,7 +4,6 @@ BASEDIR="$(dirname "$0")"
 HSDATA_URL="https://github.com/HearthSim/hsdata.git"
 HSDATA_DIR="$BASEDIR/build/hs-data"
 PACKAGE_DIR="$BASEDIR/hearthstone_data"
-BUILD="$(xmllint --xpath "string(/*/@build)" "$HSDATA_DIR/CardDefs.xml")"
 
 command -v xmllint &>/dev/null || {
 	>&2 echo "ERROR: xmllint is required to bootstrap this project."
@@ -25,6 +24,7 @@ else
 	git -C "$HSDATA_DIR" fetch &&
 	git -C "$HSDATA_DIR" reset --hard origin/master
 fi
+BUILD="$(xmllint --xpath "string(/*/@build)" "$HSDATA_DIR/CardDefs.xml")"
 
 cp "$HSDATA_DIR/BountyDefs.xml" "$PACKAGE_DIR/BountyDefs.xml"
 cp "$HSDATA_DIR/CardDefs.xml" "$PACKAGE_DIR/CardDefs.xml"
