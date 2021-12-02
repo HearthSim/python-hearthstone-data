@@ -1,6 +1,12 @@
 name: Release
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      pkgrel:
+        description: 'Package release (12345.X)'
+        required: false
+        default: '1'
 
 jobs:
   release-hearthstone-data-job:
@@ -22,6 +28,8 @@ jobs:
       run: ./bootstrap.sh
     - name: Build
       run: python setup.py sdist bdist_wheel
+      env:
+        PKGREL: ${{ github.event.inputs.pkgrel }}
     - name: Upload to pypi
       uses: pypa/gh-action-pypi-publish@release/v1
       with:

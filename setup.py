@@ -5,7 +5,7 @@ import sys
 from setuptools import setup
 
 
-BASE_VERSION = "1"
+DEFAULT_RELEASE = "1"
 
 
 def get_version():
@@ -22,7 +22,10 @@ def get_version():
 	assert hearthstone_build
 	assert hearthstone_build.isdigit()
 
-	return ".".join([hearthstone_build, BASE_VERSION])
+	release = os.environ.get("PKGREL", DEFAULT_RELEASE)
+	assert release.isdigit()
+
+	return ".".join([hearthstone_build, release])
 
 
 setup(
