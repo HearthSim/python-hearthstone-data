@@ -23,7 +23,7 @@ jobs:
       with:
         python-version: 3.8
     - name: Install Python dependencies
-      run: pip install wheel setuptools==60
+      run: pip install wheel pkginfo==1.8.3
     - name: Bootstrap
       run: ./bootstrap.sh
     - name: Build
