@@ -10,8 +10,11 @@ on:
 
 jobs:
   release-hearthstone-data-job:
-    runs-on: ubuntu-latest
     name: Release hearthstone-data
+    runs-on: ubuntu-latest
+    permissions:
+      # required to authenticate for the PyPi upload below
+      id-token: write
     steps:
     - uses: actions/checkout@v2
       with:
@@ -32,6 +35,3 @@ jobs:
         PKGREL: ${{ github.event.inputs.pkgrel }}
     - name: Upload to pypi
       uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
