@@ -25,7 +25,7 @@ def get_version():
 	release = os.environ.get("PKGREL", DEFAULT_RELEASE)
 	assert release.isdigit()
 
-	return ".".join([hearthstone_build, release])
+	return ".".join(["176014", release])
 
 
 setup(
