@@ -35,3 +35,12 @@ jobs:
         PKGREL: ${{ github.event.inputs.pkgrel }}
     - name: Upload to pypi
       uses: pypa/gh-action-pypi-publish@release/v1
+  notify:
+    name: Notify webhook about the release
+    needs: [release-hearthstone-data-job]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger webhook
+        run: curl -X POST $RELEASE_WEBHOOK_URL --fail
+        env:
+          RELEASE_WEBHOOK_URL: ${{ secrets.RELEASE_WEBHOOK_URL }}
