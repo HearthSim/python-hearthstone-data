@@ -38,6 +38,8 @@ jobs:
     needs: [release-hearthstone-data-job]
     runs-on: ubuntu-latest
     steps:
+      - name: Give PyPi a moment to update it's caches
+        run: sleep 5m
       - name: Trigger webhook
         run: curl -X POST $RELEASE_WEBHOOK_URL --fail
         env:
